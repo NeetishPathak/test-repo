@@ -1,13 +1,14 @@
-name: Issues
-on: issues
+name: Issue_Comment
+on: issue_comment
 jobs:
   info:
     runs-on: ubuntu-latest
     steps:
       - name: Echo Github Context for Issues
         run: |
-          echo "${{ toJSON(github.event.issue.user.id) }}"
+          echo "${{ toJSON(github.event.issue.user.login) }}"
           echo "${{ toJSON(github.event.issue.title) }}"
           echo "${{ toJSON(github.event.issue.body) }}"
+          echo "${{ toJSON(github.event.issue.comments_url) }}"
       - name: Echo Github Context
         run: echo "${{ toJSON(github) }}"
