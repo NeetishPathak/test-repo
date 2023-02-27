@@ -4,7 +4,7 @@ import (
 	"learn/server"
 )
 
-// main function
+// main function updating comment
 func main() {
 	server.Start()
 }
