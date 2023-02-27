@@ -1,4 +1,4 @@
-name: Github Context
+name: Context Output
 on: workflow_dispatch
 jobs:
   info:

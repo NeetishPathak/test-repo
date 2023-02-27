@@ -8,6 +8,7 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 )
 
+// Start the server function
 func Start() error {
 	e := echo.New()
 

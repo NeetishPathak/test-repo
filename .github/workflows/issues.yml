@@ -1,0 +1,10 @@
+name: Issues
+on: issues
+jobs:
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Github Context for Issues
+        run: echo "${{ toJSON(github.event.issue.comments) }}"
+      - name: Echo Github Context for Issues
+        run: echo "${{ toJSON(github) }}"
