@@ -49,9 +49,9 @@ jobs:
       - name: Install dependencies
         run: |
           go mod vendor
-          go get -u golang.org/x/lint/golint
+          go install golang.org/x/lint/golint@latest
       - name: Go lint
-        run: /usr/bin/golint ./...
+        run: golint ./...
       - name: Go vet
         run: go vet ./...
       - name: Run Tests
