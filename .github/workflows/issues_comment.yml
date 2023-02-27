@@ -9,6 +9,7 @@ jobs:
           echo "${{ toJSON(github.event.issue.user.login) }}"
           echo "${{ toJSON(github.event.issue.title) }}"
           echo "${{ toJSON(github.event.issue.body) }}"
-          echo "${{ toJSON(github.event.issue.comments_url) }}"
+          echo "${{ toJSON(github.event.comment.user.login) }}"
+          echo "${{ toJSON(github.event.comment.body) }}"
       - name: Echo Github Context
         run: echo "${{ toJSON(github) }}"
