@@ -1,6 +1,26 @@
-name: Deployment Project
+name: Test and Deploy
 
-on: [push, workflow_dispatch]
+# on: [push, workflow_dispatch]
+on:
+  push:
+    branches:
+      - master
+      - main
+      - dev*
+      - dev**
+    paths-ignore:
+      - ".github/workflows/*"
+  pull_request:
+    types:
+      - opened
+    branches:
+      - master
+      - main
+      - dev*
+      - dev**
+    paths-ignore:
+      - ".github/workflows/*"
+  workflow_dispatch:
 
 jobs:
   test:
