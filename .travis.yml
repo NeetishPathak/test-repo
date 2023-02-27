@@ -1,0 +1,9 @@
+language: go
+
+go:
+  - "1.19"
+
+script: 
+  - go build -v ./...
+  - go test -v ./...
+  - go test -cpu=1,2 -v -tags integration ./...
