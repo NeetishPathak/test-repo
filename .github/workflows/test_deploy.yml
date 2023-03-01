@@ -56,3 +56,12 @@ jobs:
         run: go test -v ./...
       - name: Build binary
         run: go build -v ./...
+  report:
+    needs: [test]
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: output information
+        run: |
+          echo "Something went wrong"
+          echo "${{ github }}"
