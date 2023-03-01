@@ -29,11 +29,11 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
         version: [1.18, 1.19]
         include:
-          - version: 1.20
+          - version: 1.17
             os: ubuntu-latest
         exclude:
           - version: 1.19
-            os: [windows-latest, macos-latest]
+            os: windows-latest
     runs-on: ${{ matrix.os }}
     # runs-on: ubuntu-latest
     steps:
