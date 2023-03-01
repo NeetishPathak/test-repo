@@ -78,3 +78,6 @@ jobs:
         run: |
           echo "Something went wrong"
           echo "${{ github }}"
+  reusablejob:
+    needs: test
+    uses: ./.github/workflows/reusable.yaml

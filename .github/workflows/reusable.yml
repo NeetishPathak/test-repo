@@ -1,0 +1,16 @@
+name: Reusable Deploy
+on: workflow_call
+jobs:
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Github Context
+        run: echo "${{ toJSON(github) }}"
+      - name: Echo Job Context
+        run: echo "${{ toJSON(job) }}"
+      - name: Echo Runner Context
+        run: echo "${{runner}}"
+      - name: Echo Env Context
+        run: echo "${{ toJSON(env) }}"
+      - name: Echo Inputs Context
+        run: echo "${{ secrets }}"
