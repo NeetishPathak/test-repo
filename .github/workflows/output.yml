@@ -18,7 +18,19 @@ jobs:
         run: |
           echo "which python --version"
           `which python` --version
-          echo "which pytho3 --version"
+          echo "which python3 --version"
+          `which python3` --version
+      - name: Set up Python2.7
+        uses: actions/setup-python@v4
+        id: setup-python2
+        with:
+          python-version: 2.7
+          update-environment: true
+      - name: Printing python info
+        run: |
+          echo "which python --version"
+          `which python` --version
+          echo "which python3 --version"
           `which python3` --version
           echo "which python2 --version"
           `which python2` --version
