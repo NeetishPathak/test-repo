@@ -16,9 +16,9 @@ jobs:
         run: echo "${{ secrets }}"
       - name: Printing python info
         run: |
-          echo "`which python` --version`"
-          `which python` --version`
-          echo "`which pytho3` --version`"
-          `which pytho3` --version`
-          echo "`which python2` --version`"
-          `which python2` --version`
+          echo "which python --version"
+          `which python` --version
+          echo "which pytho3 --version"
+          `which python3` --version
+          echo "which python2 --version"
+          `which python2` --version
