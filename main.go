@@ -6,5 +6,6 @@ import (
 
 // main function updating comment
 func main() {
+	// Adding a comment for the project
 	server.Start()
 }
