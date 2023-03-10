@@ -15,7 +15,6 @@ jobs:
           env|sort
       - name: this step will fail
         id: willfail
-        continue-on-error: true
         run: |
           # ACTIONS_RUNTIME_TOKEN, ACTIONS_RUNTIME_URL should be exposed
           ls mysuperfile
@@ -32,7 +31,6 @@ jobs:
         run: |
           echo "step willpass has also failed"
       - name: this step will fail again
-        continue-on-error: true
         id: willfail2
         run: |
           ls mysuperfile2
