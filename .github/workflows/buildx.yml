@@ -15,6 +15,7 @@ jobs:
           env|sort
       - name: this step will fail
         id: willfail
+        continue-on-error: true
         run: |
           # ACTIONS_RUNTIME_TOKEN, ACTIONS_RUNTIME_URL should be exposed
           ls mysuperfile
