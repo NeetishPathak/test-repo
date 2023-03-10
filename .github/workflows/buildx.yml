@@ -19,7 +19,7 @@ jobs:
           # ACTIONS_RUNTIME_TOKEN, ACTIONS_RUNTIME_URL should be exposed
           ls mysuperfile
       - name: reportfailure1
-        if: steps.willfail.outcome == 'failure'
+        if: failure() && steps.willfail.outcome == 'failure'
         run: |
           echo "step willfail has indeed failed"
       - name: this step will pass
