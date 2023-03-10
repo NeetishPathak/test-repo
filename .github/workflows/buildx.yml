@@ -20,7 +20,6 @@ jobs:
           # ACTIONS_RUNTIME_TOKEN, ACTIONS_RUNTIME_URL should be exposed
           ls mysuperfile
       - name: reportfailure1
-        continue-on-error: true
         if: failure() && steps.willfail.outputs.outcome == 'failure'
         run: |
           echo "step willfail has indeed failed"
@@ -29,16 +28,15 @@ jobs:
         run: |
           date
       - name: reportfailure2
-        continue-on-error: true
         if: failure() && steps.willpass.outputs.exit_code != 0
         run: |
           echo "step willpass has also failed"
       - name: this step will fail again
+        continue-on-error: true
         id: willfail2
         run: |
           ls mysuperfile2
       - name: reportfailure2
-        continue-on-error: true
         if: failure() && steps.willfail2.outputs.outcome == 'failure'
         run: |
           echo "step willfail2 has indeed failed"
