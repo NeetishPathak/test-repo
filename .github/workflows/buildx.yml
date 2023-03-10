@@ -13,3 +13,24 @@ jobs:
         run: |
           # ACTIONS_RUNTIME_TOKEN, ACTIONS_RUNTIME_URL should be exposed
           env|sort
+      - name: this step will fail
+        continue-on-error: true
+        id: willfail
+        run: |
+          # ACTIONS_RUNTIME_TOKEN, ACTIONS_RUNTIME_URL should be exposed
+          ls mysuperfile
+      - name: reportfailure1
+        if: failure() && steps.willfail.outputs.exit_code != 0
+        run: |
+          echo "step willfail has indeed failed"
+      - name: this step will pass
+        continue-on-error: true
+        id: willpass
+        run: |
+          # ACTIONS_RUNTIME_TOKEN, ACTIONS_RUNTIME_URL should be exposed
+          date
+      - name: reportfailure2
+        continue-on-error: true
+        if: failure() && steps.willpass.outputs.exit_code != 0
+        run: |
+          echo "step willpass has also failed"
