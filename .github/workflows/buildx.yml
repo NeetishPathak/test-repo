@@ -14,23 +14,29 @@ jobs:
           # ACTIONS_RUNTIME_TOKEN, ACTIONS_RUNTIME_URL should be exposed
           env|sort
       - name: this step will fail
-        continue-on-error: true
         id: willfail
         run: |
           # ACTIONS_RUNTIME_TOKEN, ACTIONS_RUNTIME_URL should be exposed
           ls mysuperfile
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
       - name: reportfailure1
-        if: steps.willfail.outputs.exit_code != 0
+        if: failure() && steps.willfail.outputs.exit_code != 0
         run: |
           echo "step willfail has indeed failed"
       - name: this step will pass
         continue-on-error: true
         id: willpass
         run: |
-          # ACTIONS_RUNTIME_TOKEN, ACTIONS_RUNTIME_URL should be exposed
           date
       - name: reportfailure2
-        continue-on-error: true
         if: failure() && steps.willpass.outputs.exit_code != 0
         run: |
           echo "step willpass has also failed"
+      - name: this step will fail again
+        id: willfail2
+        run: |
+          ls mysuperfile2
+      - name: reportfailure2
+        if: failure() && steps.willfail2.outputs.outcome == 'failure'
+        run: |
+          echo "step willfail2 has indeed failed"
